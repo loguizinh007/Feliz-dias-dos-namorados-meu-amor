@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Mariana, com amor</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e?fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .overlay {
+      background: rgba(0, 0, 30, 0.6);
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: -1;
+    }
+    .container {
+      padding: 80px 20px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+    .photo {
+      margin-top: 40px;
+    }
+    .photo img {
+      width: 250px;
+      height: 250px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+    .heart {
+      position: absolute;
+      color: pink;
+      font-size: 20px;
+      animation: float 6s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="container">
+    <h1>Para Mariana 💙</h1>
+    <p>Fiz isso pra ver seu sorriso maravilhoso.<br>Espero que goste, minha dinossaura 🦕❤️</p>
+
+    <div class="photo">
+      <img src="https://via.placeholder.com/250" alt="Sua foto aqui">
+      <p><small>Você pode trocar essa imagem por uma de vocês dois 💑</small></p>
+    </div>
+  </div>
+
+  <div class="hearts" id="hearts"></div>
+
+  <!-- Música -->
+  <iframe width="0" height="0" src="https://www.youtube.com/embed/NYxYxaFzW_Y?autoplay=1&loop=1&playlist=NYxYxaFzW_Y" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute;"></iframe>
+
+  <script>
+    const hearts = document.getElementById('hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '❤';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
