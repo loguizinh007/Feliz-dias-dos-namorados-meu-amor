@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Mariana, com amor</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      color: #f5f6fa;
+      background: radial-gradient(ellipse at bottom, #21325e 0%, #0c1027 100%);
+      position: relative;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    .stars, .stars2, .stars3 {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .stars {
+      background: url('https://raw.githubusercontent.com/loguizinh007/assets/main/starfield1.png') repeat;
+      animation: moveStars 100s linear infinite;
+      opacity: 0.7;
+    }
+    .stars2 {
+      background: url('https://raw.githubusercontent.com/loguizinh007/assets/main/starfield2.png') repeat;
+      animation: moveStars 200s linear infinite;
+      opacity: 0.5;
+    }
+    .stars3 {
+      background: url('https://raw.githubusercontent.com/loguizinh007/assets/main/starfield3.png') repeat;
+      animation: moveStars 300s linear infinite;
+      opacity: 0.3;
+    }
+    @keyframes moveStars {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+    .overlay {
+      background: rgba(10, 20, 60, 0.7);
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 80px 24px 40px 24px;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 14px;
+      letter-spacing: 2px;
+      color: #6ec1ff;
+      text-shadow: 0 0 18px #0ff3ff60, 0 0 32px #3ba1ff40;
+    }
+    p {
+      font-size: 1.3em;
+      margin-top: 10px;
+      color: #e3eaff;
+      text-shadow: 0 0 8px #1b273540;
+    }
+    .photo {
+      margin-top: 40px;
+    }
+    .photo img {
+      width: 220px;
+      height: 220px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 3px solid #a3d8ff;
+      box-shadow: 0 2px 16px #0005;
+      background: #16213e;
+    }
+    .photo small {
+      display: block;
+      color: #bcdbee;
+      margin-top: 10px;
+      font-size: 0.95em;
+    }
+    .hearts {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+    .heart {
+      position: absolute;
+      color: #ffadd6;
+      font-size: 22px;
+      animation: float 6s linear infinite;
+      user-select: none;
+      filter: drop-shadow(0 0 6px #fff5);
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+    }
+    /* Responsivo */
+    @media (max-width: 650px) {
+      .container {
+        padding: 48px 10px 24px 10px;
+      }
+      h1 { font-size: 2.1em; }
+      .photo img { width: 150px; height: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+  <div class="overlay"></div>
+  <div class="container">
+    <h1>Para Mariana 💙</h1>
+    <p>Fiz isso pra ver seu sorriso maravilhoso.<br>
+      Espero que goste, minha dinossaura 🦕❤️</p>
+    <div class="photo">
+      <img src="https://via.placeholder.com/250" alt="Sua foto aqui">
+      <small>Você pode trocar essa imagem por uma de vocês dois 💑</small>
+    </div>
+  </div>
+  <div class="hearts" id="hearts"></div>
+
+  <!-- Música de fundo -->
+  <iframe
+    width="0" height="0"
+    src="https://www.youtube.com/embed/NYxYxaFzW_Y?autoplay=1&loop=1&playlist=NYxYxaFzW_Y"
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    style="position:absolute; z-index:-10; visibility:hidden;"
+    title="Música de fundo"
+    allowfullscreen>
+  </iframe>
+  <script>
+    const hearts = document.getElementById('hearts');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '❤';
+      heart.style.left = (Math.random() * 100) + 'vw';
+      heart.style.fontSize = (Math.random() * 24 + 12) + 'px';
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
